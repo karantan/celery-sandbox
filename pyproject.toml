@@ -1,0 +1,15 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "celery_sandbox"
+author = "Gasper Vozel"
+author-email = "karantan@gmail.com"
+home-page = "https://github.com/karantan/celery-sandbox"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires=[
+    "celery",
+    "redis",
+]
+description-file = "README.md"
