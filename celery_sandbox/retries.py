@@ -24,3 +24,15 @@ def retries_exceeded(self, x, y):
             raise self.retry(countdown=1)
         except MaxRetriesExceededError:
             return 'Max retries exceeded...'
+
+
+@app.task(bind=True)
+def retries_exceeded_v2(self, x, y):
+    if x == y:
+        return x + y
+    try:
+        raise Exception('puf ...')
+    except Exception as err:
+        if self.request.retries >= self.max_retries:
+            return 'Max retries exceeded...'
+        raise self.retry(exc=err, countdown=1)

@@ -51,7 +51,7 @@ Results will be seen in the first terminal.
 
 #### Testing
 
-Before you run the tests make sure redis is running. Then run:
+Before you run the tests make sure redis and celery task are running. Then run:
 
 ```
 $ pipenv run pytest celery_sandbox
