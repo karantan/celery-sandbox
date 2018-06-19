@@ -37,13 +37,13 @@ First run the celery worker:
 $ pipenv run celery worker -A celery_sandbox.retries -l info
 ```
 
-Then open ipython in a new terminal, import `add` function and run it.
+Then open ipython in a new terminal, import `retries_exceeded` function and run it.
 
 ```
 $ pipenv run ipython
 ...
-In [1]: from celery_sandbox.retries import add
-In [2]: add.delay(1, 2)
+In [1]: from celery_sandbox.retries import retries_exceeded
+In [2]: retries_exceeded.delay(1, 2)
 ```
 
 Results will be seen in the first terminal.
