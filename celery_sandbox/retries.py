@@ -18,6 +18,9 @@ def retries_exceeded(self, x, y):
         raise Exception('puf ...')
     except Exception as err:
         try:
-            raise self.retry(throw=False, countdown=1)
+            # If you add `exc=err` the "Exception: puf ..." will be raised
+            # instead of MaxRetriesExceededError.
+            # raise self.retry(exc=err, countdown=1)
+            raise self.retry(countdown=1)
         except MaxRetriesExceededError:
             return 'Max retries exceeded...'
